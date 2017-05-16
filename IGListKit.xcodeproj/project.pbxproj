@@ -256,6 +256,9 @@
 		29DA5CA81EA7D37000113926 /* IGListTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DA5CA61EA7D37000113926 /* IGListTestCase.m */; };
 		29EA6C491DB43A8000957A88 /* IGTestNibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 294369B01DB1B7AE0025F6E7 /* IGTestNibCell.xib */; };
 		64D8007E592D0292BE4FC21D /* Pods_IGListKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68CC152B514785B3113DDD4A /* Pods_IGListKitTests.framework */; };
+		6A8A14331ECBA79700C05048 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8A14321ECBA79700C05048 /* UIKit.framework */; };
+		6A8A14351ECBA79F00C05048 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8A14341ECBA79F00C05048 /* QuartzCore.framework */; };
+		6A8A14371ECBA7A500C05048 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8A14361ECBA7A500C05048 /* CoreGraphics.framework */; };
 		821BC4C01DB8C9D500172ED0 /* IGListSingleStoryboardItemControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 821BC4BE1DB8C95300172ED0 /* IGListSingleStoryboardItemControllerTests.m */; };
 		821BC4C41DB8CEF800172ED0 /* IGTestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821BC4C21DB8CAE900172ED0 /* IGTestStoryboard.storyboard */; };
 		821BC4CB1DB8D60100172ED0 /* IGTestStoryboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 821BC4C81DB8D5B200172ED0 /* IGTestStoryboardViewController.m */; };
@@ -491,6 +494,9 @@
 		29DA5CAA1EA7D3FF00113926 /* IGListTestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGListTestHelpers.h; sourceTree = "<group>"; };
 		4883B4E449DE18EC9C37773B /* Pods-IGListKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IGListKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IGListKitTests/Pods-IGListKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		68CC152B514785B3113DDD4A /* Pods_IGListKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IGListKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A8A14321ECBA79700C05048 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6A8A14341ECBA79F00C05048 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6A8A14361ECBA7A500C05048 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6DBA851B0E1DFDC2E7BDA472 /* Pods-IGListKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IGListKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IGListKitTests/Pods-IGListKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		821BC4BE1DB8C95300172ED0 /* IGListSingleStoryboardItemControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGListSingleStoryboardItemControllerTests.m; sourceTree = "<group>"; };
 		821BC4C21DB8CAE900172ED0 /* IGTestStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IGTestStoryboard.storyboard; sourceTree = "<group>"; };
@@ -586,6 +592,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A8A14371ECBA7A500C05048 /* CoreGraphics.framework in Frameworks */,
+				6A8A14351ECBA79F00C05048 /* QuartzCore.framework in Frameworks */,
+				6A8A14331ECBA79700C05048 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,6 +753,9 @@
 		18F18B3FD5A66005918B3A19 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A8A14361ECBA7A500C05048 /* CoreGraphics.framework */,
+				6A8A14341ECBA79F00C05048 /* QuartzCore.framework */,
+				6A8A14321ECBA79700C05048 /* UIKit.framework */,
 				C9E2FD41F5B559959E09C52A /* Pods_IGListKit_tvOSTests.framework */,
 				68CC152B514785B3113DDD4A /* Pods_IGListKitTests.framework */,
 			);
