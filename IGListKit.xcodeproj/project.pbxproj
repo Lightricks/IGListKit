@@ -273,6 +273,9 @@
 		82914C5B1E6E2DEC0066C2F8 /* IGListTestContainerSizeSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 82914C5A1E6E2DEC0066C2F8 /* IGListTestContainerSizeSection.m */; };
 		82914C5C1E6E2DEC0066C2F8 /* IGListTestContainerSizeSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 82914C5A1E6E2DEC0066C2F8 /* IGListTestContainerSizeSection.m */; };
 		829D7BAA1DD1819000549816 /* IGListSectionMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 829D7BA81DD1816400549816 /* IGListSectionMapTests.m */; };
+		845C5CC720284D0500BDD728 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845C5CC620284D0500BDD728 /* UIKit.framework */; };
+		845C5CC920284D1400BDD728 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845C5CC820284D1400BDD728 /* CoreGraphics.framework */; };
+		845C5CCB20284D1900BDD728 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845C5CCA20284D1900BDD728 /* QuartzCore.framework */; };
 		88144F071D870EDC007C7F66 /* IGListAdapterE2ETests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88144EE21D870EDC007C7F66 /* IGListAdapterE2ETests.m */; };
 		88144F081D870EDC007C7F66 /* IGListAdapterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88144EE31D870EDC007C7F66 /* IGListAdapterTests.m */; };
 		88144F091D870EDC007C7F66 /* IGListAdapterUpdaterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88144EE41D870EDC007C7F66 /* IGListAdapterUpdaterTests.m */; };
@@ -559,6 +562,9 @@
 		82914C591E6E2DEC0066C2F8 /* IGListTestContainerSizeSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGListTestContainerSizeSection.h; sourceTree = "<group>"; };
 		82914C5A1E6E2DEC0066C2F8 /* IGListTestContainerSizeSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGListTestContainerSizeSection.m; sourceTree = "<group>"; };
 		829D7BA81DD1816400549816 /* IGListSectionMapTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGListSectionMapTests.m; sourceTree = "<group>"; };
+		845C5CC620284D0500BDD728 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		845C5CC820284D1400BDD728 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		845C5CCA20284D1900BDD728 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		88144EE21D870EDC007C7F66 /* IGListAdapterE2ETests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGListAdapterE2ETests.m; sourceTree = "<group>"; };
 		88144EE31D870EDC007C7F66 /* IGListAdapterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGListAdapterTests.m; sourceTree = "<group>"; };
 		88144EE41D870EDC007C7F66 /* IGListAdapterUpdaterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGListAdapterUpdaterTests.m; sourceTree = "<group>"; };
@@ -631,6 +637,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845C5CC920284D1400BDD728 /* CoreGraphics.framework in Frameworks */,
+				845C5CCB20284D1900BDD728 /* QuartzCore.framework in Frameworks */,
+				845C5CC720284D0500BDD728 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,6 +829,9 @@
 		41882EBBC340173A8053E3AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				845C5CCA20284D1900BDD728 /* QuartzCore.framework */,
+				845C5CC820284D1400BDD728 /* CoreGraphics.framework */,
+				845C5CC620284D0500BDD728 /* UIKit.framework */,
 				E980179F5E885E417EB20D55 /* Pods_IGListKit_tvOSTests.framework */,
 				1AB7195278D0BBB5DA88D36F /* Pods_IGListKitTests.framework */,
 			);
