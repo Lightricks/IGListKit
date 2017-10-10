@@ -9,6 +9,7 @@
 
 #import <XCTest/XCTest.h>
 
+#import <OCMock/OCMock.h>
 #import <IGListKit/IGListKit.h>
 
 #import "IGTestDiffingDataSource.h"
@@ -20,6 +21,7 @@
 #import "IGTestObject.h"
 #import "IGTestCell.h"
 #import "IGListTestCase.h"
+#import "IGTestBindingWithoutDeselectionDelegate.h"
 
 @interface IGListBindingSectionControllerTests : IGListTestCase
 
@@ -103,6 +105,41 @@
     [self waitForExpectationsWithTimeout:30 handler:nil];
 }
 
+- (void)test_whenUpdating_withNotUniqueModels_thatCellsCorrectAndConfigured {
+    [self setupWithObjects:@[
+                             [[IGTestDiffingObject alloc] initWithKey:@1 objects:@[@7, @"seven"]],
+                             ]];
+    [self.adapter reloadObjects:@[[[IGTestDiffingObject alloc] initWithKey:@1 objects:@[@"four", @4, @"seven", @7, @"seven", @10]]]];
+
+    IGTestNumberBindableCell *cell00 = [self cellAtSection:0 item:0];
+    IGTestStringBindableCell *cell01 = [self cellAtSection:0 item:1];
+
+    XCTAssertEqualObjects(cell00.textField.text, @"7");
+    XCTAssertEqualObjects(cell01.label.text, @"seven");
+    XCTAssertNil([self cellAtSection:0 item:2]);
+    XCTAssertNil([self cellAtSection:0 item:3]);
+
+    // "fake" batch updates to make sure that calling reload triggers a diffed batch update
+    XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
+    [self.adapter performBatchAnimated:YES updates:^(id<IGListBatchContext> batchContext){} completion:^(BOOL finished) {
+        IGTestStringBindableCell *batchedCell00 = [self cellAtSection:0 item:0];
+        IGTestNumberBindableCell *batchedCell01 = [self cellAtSection:0 item:1];
+        IGTestStringBindableCell *batchedCell02 = [self cellAtSection:0 item:2];
+        IGTestNumberBindableCell *batchedCell03 = [self cellAtSection:0 item:3];
+        IGTestNumberBindableCell *batchedCell04 = [self cellAtSection:0 item:4];
+
+        XCTAssertEqualObjects(batchedCell00.label.text, @"four");
+        XCTAssertEqualObjects(batchedCell01.textField.text, @"4");
+        XCTAssertEqualObjects(batchedCell02.label.text, @"seven");
+        XCTAssertEqualObjects(batchedCell03.textField.text, @"7");
+        XCTAssertEqualObjects(batchedCell04.textField.text, @"10");
+
+        [expectation fulfill];
+    }];
+
+    [self waitForExpectationsWithTimeout:30 handler:nil];
+}
+
 - (void)test_whenSelectingCell_thatCorrectViewModelSelected {
     [self setupWithObjects:@[
                              [[IGTestDiffingObject alloc] initWithKey:@1 objects:@[@7, @"seven"]],
@@ -110,6 +147,49 @@
     [self.adapter collectionView:self.collectionView didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
     IGTestDiffingSectionController *section = [self.adapter sectionControllerForObject:self.dataSource.objects.firstObject];
     XCTAssertEqualObjects(section.selectedViewModel, @"seven");
+}
+
+- (void)test_whenDeselectingCell_thatCorrectViewModelSelected {
+    [self setupWithObjects:@[
+                             [[IGTestDiffingObject alloc] initWithKey:@1 objects:@[@7, @"seven"]],
+                             ]];
+    [self.adapter collectionView:self.collectionView didDeselectItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
+    IGTestDiffingSectionController *section = [self.adapter sectionControllerForObject:self.dataSource.objects.firstObject];
+    XCTAssertEqualObjects(section.deselectedViewModel, @"seven");
+}
+
+- (void)test_whenHighlightingCell_thatCorrectViewModelHighlighted {
+    [self setupWithObjects:@[
+                             [[IGTestDiffingObject alloc] initWithKey:@1 objects:@[@7, @"seven"]],
+                             ]];
+    [self.adapter collectionView:self.collectionView didHighlightItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
+    IGTestDiffingSectionController *section = [self.adapter sectionControllerForObject:self.dataSource.objects.firstObject];
+    XCTAssertEqualObjects(section.highlightedViewModel, @"seven");
+}
+
+- (void)test_whenUnhighlightingCell_thatCorrectViewModelUnhighlighted {
+    [self setupWithObjects:@[
+                             [[IGTestDiffingObject alloc] initWithKey:@1 objects:@[@7, @"seven"]],
+                             ]];
+    [self.adapter collectionView:self.collectionView didUnhighlightItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
+    IGTestDiffingSectionController *section = [self.adapter sectionControllerForObject:self.dataSource.objects.firstObject];
+    XCTAssertEqualObjects(section.unhighlightedViewModel, @"seven");
+}
+
+- (void)test_whenDeselectingCell_withoutImplementation_thatNoOps {
+    [self setupWithObjects:@[
+                             [[IGTestDiffingObject alloc] initWithKey:@1 objects:@[@7, @"seven"]],
+                             ]];
+
+    IGTestBindingWithoutDeselectionDelegate *delegate = [IGTestBindingWithoutDeselectionDelegate new];
+    IGTestDiffingSectionController *section = [self.adapter sectionControllerForObject:self.dataSource.objects.firstObject];
+    section.selectionDelegate = delegate;
+
+    [self.adapter collectionView:self.collectionView didDeselectItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
+    XCTAssertFalse(delegate.selected);
+
+    [self.adapter collectionView:self.collectionView didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
+    XCTAssertTrue(delegate.selected);
 }
 
 - (void)test_whenAdapterReloadsObjects_thatSectionUpdated {
@@ -217,3 +297,4 @@
 }
 
 @end
+

@@ -71,6 +71,17 @@
     [sectionController didSelectItemAtIndex:indexPath.item];
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    // forward this method to the delegate b/c this implementation will steal the message from the proxy
+    id<UICollectionViewDelegate> collectionViewDelegate = self.collectionViewDelegate;
+    if ([collectionViewDelegate respondsToSelector:@selector(collectionView:didDeselectItemAtIndexPath:)]) {
+        [collectionViewDelegate collectionView:collectionView didDeselectItemAtIndexPath:indexPath];
+    }
+
+    IGListSectionController * sectionController = [self sectionControllerForSection:indexPath.section];
+    [sectionController didDeselectItemAtIndex:indexPath.item];
+}
+
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     // forward this method to the delegate b/c this implementation will steal the message from the proxy
     id<UICollectionViewDelegate> collectionViewDelegate = self.collectionViewDelegate;
@@ -137,6 +148,28 @@
     [self.displayHandler didEndDisplayingSupplementaryView:view forListAdapter:self sectionController:sectionController indexPath:indexPath];
 
     [self removeMapForView:view];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    // forward this method to the delegate b/c this implementation will steal the message from the proxy
+    id<UICollectionViewDelegate> collectionViewDelegate = self.collectionViewDelegate;
+    if ([collectionViewDelegate respondsToSelector:@selector(collectionView:didHighlightItemAtIndexPath:)]) {
+        [collectionViewDelegate collectionView:collectionView didHighlightItemAtIndexPath:indexPath];
+    }
+
+    IGListSectionController * sectionController = [self sectionControllerForSection:indexPath.section];
+    [sectionController didHighlightItemAtIndex:indexPath.item];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    // forward this method to the delegate b/c this implementation will steal the message from the proxy
+    id<UICollectionViewDelegate> collectionViewDelegate = self.collectionViewDelegate;
+    if ([collectionViewDelegate respondsToSelector:@selector(collectionView:didUnhighlightItemAtIndexPath:)]) {
+        [collectionViewDelegate collectionView:collectionView didUnhighlightItemAtIndexPath:indexPath];
+    }
+
+    IGListSectionController * sectionController = [self sectionControllerForSection:indexPath.section];
+    [sectionController didUnhighlightItemAtIndex:indexPath.item];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout

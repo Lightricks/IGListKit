@@ -1124,6 +1124,9 @@
 
 - (void)test_whenQueuingUpdate_withSectionControllerBatchUpdate_thatSectionControllerNotRetained {
     __weak id weakSectionController = nil;
+    __weak id weakAdapter = nil;
+    __weak id weakCollectionView = nil;
+
     @autoreleasepool {
         IGListAdapter *adapter = [[IGListAdapter alloc] initWithUpdater:[IGListAdapterUpdater new] viewController:nil];
         IGTestDelegateDataSource *dataSource = [IGTestDelegateDataSource new];
@@ -1146,9 +1149,16 @@
         dataSource.objects = @[object, genTestObject(@2, @2)];
         [adapter performUpdatesAnimated:YES completion:^(BOOL finished) {}];
 
+        weakAdapter = adapter;
+        weakCollectionView = collectionView;
         weakSectionController = section;
+
+        XCTAssertNotNil(weakAdapter);
+        XCTAssertNotNil(weakCollectionView);
         XCTAssertNotNil(weakSectionController);
     }
+    XCTAssertNil(weakAdapter);
+    XCTAssertNil(weakCollectionView);
     XCTAssertNil(weakSectionController);
 }
 
@@ -1478,6 +1488,117 @@
         [expectation fulfill];
     }];
     [self waitForExpectationsWithTimeout:30 handler:nil];
+}
+
+- (void)test_whenUpdateQueuedDuringBatch_thatUpdateCompletesWithoutCrashing {
+    [self setupWithObjects:@[
+                             genTestObject(@1, @4),
+                             genTestObject(@2, @4),
+                             genTestObject(@3, @4),
+                             genTestObject(@4, @4),
+                             ]];
+
+    IGTestObject *object = self.dataSource.objects[0];
+    IGTestDelegateController *sectionController = [self.adapter sectionControllerForObject:object];
+
+    XCTestExpectation *expect1 = genExpectation;
+    XCTestExpectation *expect2 = genExpectation;
+
+    [sectionController.collectionContext performBatchAnimated:YES updates:^(id<IGListBatchContext> batchContext) {
+        object.value = @3;
+        [batchContext deleteInSectionController:sectionController atIndexes:[NSIndexSet indexSetWithIndex:0]];
+
+        self.dataSource.objects = @[
+                                    genTestObject(@2, @4),
+                                    genTestObject(@4, @4),
+                                    genTestObject(@1, @3),
+                                    ];
+        [self.adapter performUpdatesAnimated:YES completion:^(BOOL finished) {
+            XCTAssertEqual([self.collectionView numberOfSections], 3);
+            XCTAssertEqual([self.collectionView numberOfItemsInSection:0], 4);
+            XCTAssertEqual([self.collectionView numberOfItemsInSection:1], 4);
+            XCTAssertEqual([self.collectionView numberOfItemsInSection:2], 3);
+            [expect1 fulfill];
+        }];
+    } completion:^(BOOL finished2) {
+        XCTAssertEqual([self.collectionView numberOfSections], 4);
+        XCTAssertEqual([self.collectionView numberOfItemsInSection:0], 3);
+        XCTAssertEqual([self.collectionView numberOfItemsInSection:1], 4);
+        XCTAssertEqual([self.collectionView numberOfItemsInSection:2], 4);
+        XCTAssertEqual([self.collectionView numberOfItemsInSection:3], 4);
+        [expect2 fulfill];
+    }];
+    [self waitForExpectationsWithTimeout:30 handler:nil];
+}
+
+- (void)test_whenMassiveUpdate_thatUpdateApplied {
+    // init empty
+    [self setupWithObjects:@[]];
+
+    ((IGListAdapterUpdater *)self.updater).experiments = IGListExperimentReloadDataFallback;
+
+    NSMutableArray *objects = [NSMutableArray new];
+    for (NSInteger i = 0; i < 3000; i++) {
+        [objects addObject:genTestObject(@(i + 1), @4)];
+    }
+    self.dataSource.objects = objects;
+
+    XCTestExpectation *expectation = genExpectation;
+    [self.adapter performUpdatesAnimated:YES completion:^(BOOL finished) {
+        XCTAssertEqual([self.collectionView numberOfSections], 3000);
+        [expectation fulfill];
+    }];
+
+    [self waitForExpectationsWithTimeout:30 handler:nil];
+}
+
+- (void)test_whenInvalidatingInsideBatchUpdate_withSystemReleased_thatSystemNil_andCollectionViewDoesntCrashOnDealloc {
+    __weak id weakAdapter = nil;
+    __block BOOL executedItemUpdate = NO;
+    XCTestExpectation *expectation = genExpectation;
+
+    @autoreleasepool {
+        self.dataSource.objects = @[
+                                    genTestObject(@1, @"Bar"),
+                                    genTestObject(@0, @"Foo")
+                                    ];
+
+        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.window.frame collectionViewLayout:[UICollectionViewFlowLayout new]];
+        [self.window addSubview:collectionView];
+        IGListAdapterUpdater *updater = [IGListAdapterUpdater new];
+        IGListAdapter *adapter = [[IGListAdapter alloc] initWithUpdater:updater viewController:nil];
+        adapter.dataSource = self.dataSource;
+        adapter.collectionView = collectionView;
+        [collectionView layoutIfNeeded];
+
+        IGTestDelegateController *section = [adapter sectionControllerForObject:self.dataSource.objects.firstObject];
+
+        __weak typeof(section) weakSection = section;
+        section.itemUpdateBlock = ^{
+            executedItemUpdate = YES;
+            [weakSection.collectionContext invalidateLayoutForSectionController:weakSection completion:nil];
+        };
+
+        self.dataSource.objects = @[
+                                    genTestObject(@1, @"Bar"),
+                                    genTestObject(@0, @"Foo")
+                                    ];
+
+        [adapter performUpdatesAnimated:YES completion:^(BOOL finished) {
+            XCTAssertNotNil(collectionView);
+            XCTAssertNotNil(adapter);
+            [collectionView removeFromSuperview];
+            [expectation fulfill];
+        }];
+
+        weakAdapter = adapter;
+        XCTAssertNotNil(weakAdapter);
+    }
+
+    [self waitForExpectationsWithTimeout:30 handler:^(NSError * _Nullable error) {
+        XCTAssertTrue(executedItemUpdate);
+        XCTAssertNil(weakAdapter);
+    }];
 }
 
 @end
