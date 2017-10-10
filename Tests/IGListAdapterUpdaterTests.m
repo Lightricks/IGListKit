@@ -12,6 +12,7 @@
 
 #import "IGListAdapterUpdaterInternal.h"
 #import "IGListTestUICollectionViewDataSource.h"
+#import "NSNumber+IGListDiffable.h"
 
 #define genExpectation [self expectationWithDescription:NSStringFromSelector(_cmd)]
 #define waitExpectation [self waitForExpectationsWithTimeout:30 handler:nil]
@@ -245,7 +246,7 @@
     __block NSInteger completionCounter = 0;
 
     XCTestExpectation *expectation1 = genExpectation;
-    void (^preUpdateBlock)() = ^{
+    void (^preUpdateBlock)(void) = ^{
         NSArray *anotherTo = @[
                                [IGSectionObject sectionWithObjects:@[]],
                                [IGSectionObject sectionWithObjects:@[]],
@@ -318,7 +319,7 @@
 }
 
 - (void)test_whenItemsMoveAndUpdate_thatCollectionViewWorks {
-    NSArray *from = @[
+    NSArray<IGSectionObject *> *from = @[
                       [IGSectionObject sectionWithObjects:@[]],
                       [IGSectionObject sectionWithObjects:@[]],
                       [IGSectionObject sectionWithObjects:@[]],
