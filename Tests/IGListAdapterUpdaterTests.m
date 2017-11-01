@@ -10,6 +10,8 @@
 #import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
 
+#import <IGListKit/IGListKit.h>
+
 #import "IGListAdapterUpdaterInternal.h"
 #import "IGListTestUICollectionViewDataSource.h"
 #import "NSNumber+IGListDiffable.h"
