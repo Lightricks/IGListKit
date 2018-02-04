@@ -20,6 +20,7 @@
 #import "IGTestObject.h"
 #import "IGListTestCase.h"
 #import "IGListAdapterUpdateTester.h"
+#import "IGListTestHelpers.h"
 
 @interface IGListAdapterE2ETests : IGListTestCase
 @end
@@ -959,33 +960,6 @@
     [self waitForExpectationsWithTimeout:30 handler:nil];
 }
 
-- (void)test_whenBatchUpdating_withDuplicateIdentifiers_thatHaveDifferentValues_thatCollectionViewWorks {
-    [self setupWithObjects:@[
-                             // using string values IGTestDelegateController always returns 1 cell
-                             genTestObject(@1, @"a"),
-                             genTestObject(@2, @"a"),
-                             genTestObject(@3, @"a"),
-                             genTestObject(@4, @"b"), // problem item w/ key 4, value "b"
-                             ]];
-
-    self.dataSource.objects = @[
-                                genTestObject(@1, @"a"),
-                                genTestObject(@5, @"a"),
-                                genTestObject(@6, @"a"),
-                                genTestObject(@7, @"a"),
-                                genTestObject(@4, @"a"), // key 4 but value "a", so this needs reloaded
-                                genTestObject(@8, @"a"),
-                                genTestObject(@4, @"b"), // key 4 but value didn't change
-                                ];
-    XCTestExpectation *expectation = genExpectation;
-
-    [self.adapter performUpdatesAnimated:YES completion:^(BOOL finished) {
-        [expectation fulfill];
-    }];
-
-    [self waitForExpectationsWithTimeout:30 handler:nil];
-}
-
 - (void)test_whenPerformingUpdates_withWorkingRange_thatAccessingCellDoesntCrash {
     [self setupWithObjects:@[
                              genTestObject(@1, @1),
@@ -1811,6 +1785,53 @@
     }];
 
     [self waitForExpectationsWithTimeout:30 handler:nil];
+}
+
+- (void)test_whenInsertingItemTwice_withDedupeExperiment_thatSecondInsertGetsDropped {
+    ((IGListAdapterUpdater*)self.updater).experiments = IGListExperimentDedupeItemUpdates;
+
+    IGTestObject *object = genTestObject(@1, @1);
+    [self setupWithObjects:@[object]];
+
+    IGTestDelegateController *controller = [self.adapter sectionControllerForObject:self.dataSource.objects.firstObject];
+    XCTestExpectation *expectation = genExpectation;
+    [controller.collectionContext performBatchAnimated:YES updates:^(id<IGListBatchContext>  _Nonnull batchContext) {
+        object.value = @2;
+        [batchContext insertInSectionController:controller atIndexes:[NSIndexSet indexSetWithIndex:0]];
+        [batchContext insertInSectionController:controller atIndexes:[NSIndexSet indexSetWithIndex:0]];
+    } completion:^(BOOL finished) {
+        [expectation fulfill];
+    }];
+
+    [self waitForExpectationsWithTimeout:30 handler:nil];
+}
+
+- (void)test_whenModifyingInitialAndFinalAttribute_thatLayoutIsCorrect {
+    // set up the custom layout
+    IGListCollectionViewLayout *layout = [[IGListCollectionViewLayout alloc] initWithStickyHeaders:NO topContentInset:0 stretchToEdge:YES];
+    self.collectionView.collectionViewLayout = layout;
+
+    IGTestObject *object = genTestObject(@1, @2);
+    [self setupWithObjects:@ [object]];
+
+    // set up the section controller
+    IGTestDelegateController *sectionController = [self.adapter sectionControllerForObject:object];
+    sectionController.transitionDelegate = sectionController;
+
+    CGPoint offset = CGPointMake(10, 10);
+    NSIndexPath *indexPath = genIndexPath(0, 0);
+    UICollectionViewLayoutAttributes *attribute = [layout layoutAttributesForItemAtIndexPath:indexPath];
+
+    // set up the custom initial attribute transformation
+    sectionController.initialAttributesOffset = offset;
+    UICollectionViewLayoutAttributes *initialAttribute = [layout initialLayoutAttributesForAppearingItemAtIndexPath:indexPath];
+
+    // set up the custom final attribute transformation
+    sectionController.finalAttributesOffset = offset;
+    UICollectionViewLayoutAttributes *finalAttribute = [layout finalLayoutAttributesForDisappearingItemAtIndexPath:indexPath];
+
+    IGAssertEqualPoint(initialAttribute.center, attribute.center.x + offset.x, attribute.center.y + offset.y);
+    IGAssertEqualPoint(finalAttribute.center, attribute.center.x + offset.x ,attribute.center.y + offset.y);
 }
 
 @end

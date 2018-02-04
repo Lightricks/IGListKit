@@ -176,7 +176,12 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     IGAssert(![self.collectionViewDelegate respondsToSelector:_cmd], @"IGListAdapter is consuming method also implemented by the collectionViewDelegate: %@", NSStringFromSelector(_cmd));
-    return [self sizeForItemAtIndexPath:indexPath];
+    
+    CGSize size = [self sizeForItemAtIndexPath:indexPath];
+    IGAssert(!isnan(size.height), @"IGListAdapter returned NaN height = %f for item at indexPath <%@>", size.height, indexPath);
+    IGAssert(!isnan(size.width), @"IGListAdapter returned NaN width = %f for item at indexPath <%@>", size.width, indexPath);
+    
+    return size;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
@@ -204,6 +209,36 @@
     IGAssert(![self.collectionViewDelegate respondsToSelector:_cmd], @"IGListAdapter is consuming method also implemented by the collectionViewDelegate: %@", NSStringFromSelector(_cmd));
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:section];
     return [self sizeForSupplementaryViewOfKind:UICollectionElementKindSectionFooter atIndexPath:indexPath];
+}
+
+#pragma mark - IGListCollectionViewDelegateLayout
+
+- (UICollectionViewLayoutAttributes *)collectionView:(UICollectionView *)collectionView
+                                              layout:(UICollectionViewLayout*)collectionViewLayout
+                   customizedInitialLayoutAttributes:(UICollectionViewLayoutAttributes *)attributes
+                                         atIndexPath:(NSIndexPath *)indexPath {
+    IGListSectionController *sectionController = [self sectionControllerForSection:indexPath.section];
+    if (sectionController.transitionDelegate) {
+        return [sectionController.transitionDelegate listAdapter:self
+                               customizedInitialLayoutAttributes:attributes
+                                               sectionController:sectionController
+                                                         atIndex:indexPath.item];
+    }
+    return attributes;
+}
+
+- (UICollectionViewLayoutAttributes *)collectionView:(UICollectionView *)collectionView
+                                              layout:(UICollectionViewLayout*)collectionViewLayout
+                     customizedFinalLayoutAttributes:(UICollectionViewLayoutAttributes *)attributes
+                                         atIndexPath:(NSIndexPath *)indexPath {
+    IGListSectionController *sectionController = [self sectionControllerForSection:indexPath.section];
+    if (sectionController.transitionDelegate) {
+        return [sectionController.transitionDelegate listAdapter:self
+                                 customizedFinalLayoutAttributes:attributes
+                                               sectionController:sectionController
+                                                         atIndex:indexPath.item];
+    }
+    return attributes;
 }
 
 @end

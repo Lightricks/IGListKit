@@ -131,6 +131,9 @@ NS_SWIFT_NAME(ListAdapter)
  Perform an immediate reload of the data in the data source, discarding the old objects.
 
  @param completion The block to execute when the reload completes.
+
+ @warning Do not use this method to update without animations as it can be very expensive to teardown and rebuild all
+ section controllers. Use `-[IGListAdapter performUpdatesAnimated:completion]` instead.
  */
 - (void)reloadDataWithCompletion:(nullable IGListUpdaterCompletion)completion;
 
@@ -262,8 +265,20 @@ NS_SWIFT_NAME(ListAdapter)
 - (CGSize)sizeForSupplementaryViewOfKind:(NSString *)elementKind
                              atIndexPath:(NSIndexPath *)indexPath;
 
+/**
+ Adds a listener to the list adapter.
+
+ @param updateListener The object conforming to the `IGListAdapterUpdateListener` protocol.
+
+ @note Listeners are held weakly so there is no need to call `-[IGListAdapter removeUpdateListener:]` on `dealloc`.
+ */
 - (void)addUpdateListener:(id<IGListAdapterUpdateListener>)updateListener;
 
+/**
+ Removes a listener from the list adapter.
+
+ @param updateListener The object conforming to the `IGListAdapterUpdateListener` protocol.
+ */
 - (void)removeUpdateListener:(id<IGListAdapterUpdateListener>)updateListener;
 
 /**
