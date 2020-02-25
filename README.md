@@ -47,7 +47,7 @@ We use the open source version `master` branch in the Instagram app.
 ## Requirements
 
 - Xcode 9.0+
-- iOS 8.0+
+- iOS 9.0+
 - tvOS 9.0+
 - macOS 10.11+ *(diffing algorithm components only)*
 - Interoperability with Swift 3.0+
@@ -59,7 +59,7 @@ We use the open source version `master` branch in the Instagram app.
 The preferred installation method is with [CocoaPods](https://cocoapods.org). Add the following to your `Podfile`:
 
 ```ruby
-pod 'IGListKit', '~> 3.0'
+pod 'IGListKit', '~> 4.0.0'
 ```
 
 ### Carthage
@@ -67,7 +67,7 @@ pod 'IGListKit', '~> 3.0'
 For [Carthage](https://github.com/Carthage/Carthage), add the following to your `Cartfile`:
 
 ```ogdl
-github "Instagram/IGListKit" ~> 3.0
+github "Instagram/IGListKit" ~> 4.0.0
 ```
 
 > For advanced usage, see our [Installation Guide](https://instagram.github.io/IGListKit/installation.html).
@@ -105,6 +105,6 @@ We have a set of [starter tasks](https://github.com/Instagram/IGListKit/issues?q
 
 ## License
 
-`IGListKit` is BSD-licensed. We also provide an additional patent grant.
+`IGListKit` is [MIT-licensed](./LICENSE).
 
 The files in the `/Examples/` directory are licensed under a separate license as specified in each file. Documentation is licensed [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
