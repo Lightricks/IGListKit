@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
@@ -19,7 +19,7 @@
 
 - (NSArray<NSString *> *)debugDescriptionLines {
     NSMutableArray *debug = [NSMutableArray new];
-#if IGLK_DEBUG_DESCRIPTION_ENABLED
+#if defined(IGLK_DEBUG_DESCRIPTION_ENABLED) && IGLK_DEBUG_DESCRIPTION_ENABLED
     [debug addObject:[NSString stringWithFormat:@"Data source: %@", self.dataSource]];
     [debug addObject:[NSString stringWithFormat:@"Selection delegate: %@", self.selectionDelegate]];
     [debug addObject:[NSString stringWithFormat:@"Object: %@", self.object]];
@@ -37,10 +37,9 @@
     [debug addObject:[NSString stringWithFormat:@"Display delegate: %@", self.displayDelegate]];
     [debug addObject:[NSString stringWithFormat:@"Working range delegate: %@", self.workingRangeDelegate]];
     [debug addObject:[NSString stringWithFormat:@"Scroll delegate: %@", self.scrollDelegate]];
-    
+
 #endif // #if IGLK_DEBUG_DESCRIPTION_ENABLED
     return debug;
 }
 
 @end
-

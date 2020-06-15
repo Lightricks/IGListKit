@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
@@ -11,7 +11,7 @@
 #import "IGListBatchUpdateData+DebugDescription.h"
 #import "IGListDebuggingUtilities.h"
 
-#if IGLK_DEBUG_DESCRIPTION_ENABLED
+#if defined(IGLK_DEBUG_DESCRIPTION_ENABLED) && IGLK_DEBUG_DESCRIPTION_ENABLED
 static NSMutableArray *linesFromObjects(NSArray *objects) {
     NSMutableArray *lines = [NSMutableArray new];
     for (id object in objects) {
@@ -26,7 +26,7 @@ static NSMutableArray *linesFromObjects(NSArray *objects) {
 
 - (NSArray<NSString *> *)debugDescriptionLines {
     NSMutableArray *debug = [NSMutableArray new];
-#if IGLK_DEBUG_DESCRIPTION_ENABLED
+#if defined(IGLK_DEBUG_DESCRIPTION_ENABLED) && IGLK_DEBUG_DESCRIPTION_ENABLED
     [debug addObject:[NSString stringWithFormat:@"Moves as deletes+inserts: %@", IGListDebugBOOL(self.movesAsDeletesInserts)]];
     [debug addObject:[NSString stringWithFormat:@"Allows background reloading: %@", IGListDebugBOOL(self.allowsBackgroundReloading)]];
     [debug addObject:[NSString stringWithFormat:@"Has queued reload data: %@", IGListDebugBOOL(self.hasQueuedReloadData)]];
