@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
@@ -149,19 +149,6 @@ static IGListMoveIndex *newMove(NSInteger from, NSInteger to) {
                                                                            moveIndexPaths:@[]];
 
     XCTAssertEqualObjects(result.deleteIndexPaths, @[newPath(2, 0)]);
-}
-
-- (void)test_whenInsertingSameIndexPathMultipleTimes_thatResultDropsTheDuplicates {
-    IGListBatchUpdateData *result = [[IGListBatchUpdateData alloc] initWithInsertSections:indexSet(@[])
-                                                                           deleteSections:indexSet(@[])
-                                                                             moveSections:[NSSet new]
-                                                                         insertIndexPaths:@[newPath(2, 0), newPath(2, 0)]
-                                                                         deleteIndexPaths:@[]
-                                                                         updateIndexPaths:@[]
-                                                                           moveIndexPaths:@[]
-                                                                    fixIndexPathImbalance:YES];
-
-    XCTAssertEqualObjects(result.insertIndexPaths, @[newPath(2, 0)]);
 }
 
 @end

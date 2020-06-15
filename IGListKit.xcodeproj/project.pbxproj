@@ -312,6 +312,14 @@
 		7A02D0AA2361530800B49FAE /* IGListDiffKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A02D02B2361525800B49FAE /* IGListDiffKit.framework */; };
 		7A02D0AB2361530E00B49FAE /* IGListDiffKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A02D01D2361520200B49FAE /* IGListDiffKit.framework */; };
 		7A02D0C023615CE500B49FAE /* IGListKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A02CED72361511000B49FAE /* IGListKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A92EAB423A8A5FA00E5A13D /* IGListAdapterUpdaterHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD6864A23A89E7F009000DE /* IGListAdapterUpdaterHelpers.h */; };
+		7AD6864C23A89E7F009000DE /* IGListAdapterUpdaterHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD6864A23A89E7F009000DE /* IGListAdapterUpdaterHelpers.h */; };
+		7A92EAB523A8A5FF00E5A13D /* IGListAdapterUpdaterHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6864923A89E7F009000DE /* IGListAdapterUpdaterHelpers.m */; };
+		7A92EA9B23A8A42000E5A13D /* IGListSwiftKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A92EA9923A8A42000E5A13D /* IGListSwiftKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A92EAA023A8A43D00E5A13D /* IGListCollectionContext+Refinements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A92EA9F23A8A43D00E5A13D /* IGListCollectionContext+Refinements.swift */; };
+		7A92EAB023A8A50C00E5A13D /* IGListSwiftKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A92EA9923A8A42000E5A13D /* IGListSwiftKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A92EAB123A8A50C00E5A13D /* IGListCollectionContext+Refinements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A92EA9F23A8A43D00E5A13D /* IGListCollectionContext+Refinements.swift */; };
+		7AD6864B23A89E7F009000DE /* IGListAdapterUpdaterHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6864923A89E7F009000DE /* IGListAdapterUpdaterHelpers.m */; };
 		821BC4C01DB8C9D500172ED0 /* IGListSingleStoryboardItemControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 821BC4BE1DB8C95300172ED0 /* IGListSingleStoryboardItemControllerTests.m */; };
 		821BC4C41DB8CEF800172ED0 /* IGTestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821BC4C21DB8CAE900172ED0 /* IGTestStoryboard.storyboard */; };
 		821BC4CB1DB8D60100172ED0 /* IGTestStoryboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 821BC4C81DB8D5B200172ED0 /* IGTestStoryboardViewController.m */; };
@@ -413,6 +421,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 7A02D0372361526600B49FAE;
 			remoteInfo = "IGListDiffKit-macOS";
+		};
+		7A92EAA123A8A4E700E5A13D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 887D0B2D1D870D7E009E01F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 887D0B351D870D7E009E01F7;
+			remoteInfo = IGListKit;
+		};
+		7A92EAB223A8A53F00E5A13D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 887D0B2D1D870D7E009E01F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 885FE1D31DC51A0D009CE2B4;
+			remoteInfo = "IGListKit-tvOS";
 		};
 		885FE1DE1DC51A0D009CE2B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -601,6 +623,12 @@
 		7A02D0592361529E00B49FAE /* IGListMoveIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGListMoveIndex.h; sourceTree = "<group>"; };
 		7A02D05A2361529F00B49FAE /* IGListIndexSetResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGListIndexSetResult.h; sourceTree = "<group>"; };
 		7A02D0AC236153CE00B49FAE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A92EA9723A8A42000E5A13D /* IGListSwiftKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IGListSwiftKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A92EA9923A8A42000E5A13D /* IGListSwiftKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IGListSwiftKit.h; sourceTree = "<group>"; };
+		7A92EA9F23A8A43D00E5A13D /* IGListCollectionContext+Refinements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "IGListCollectionContext+Refinements.swift"; path = "Source/IGListSwiftKit/IGListCollectionContext+Refinements.swift"; sourceTree = SOURCE_ROOT; };
+		7A92EAA823A8A50100E5A13D /* IGListSwiftKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IGListSwiftKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AD6864923A89E7F009000DE /* IGListAdapterUpdaterHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGListAdapterUpdaterHelpers.m; sourceTree = "<group>"; };
+		7AD6864A23A89E7F009000DE /* IGListAdapterUpdaterHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGListAdapterUpdaterHelpers.h; sourceTree = "<group>"; };
 		821BC4BE1DB8C95300172ED0 /* IGListSingleStoryboardItemControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGListSingleStoryboardItemControllerTests.m; sourceTree = "<group>"; };
 		821BC4C21DB8CAE900172ED0 /* IGTestStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IGTestStoryboard.storyboard; sourceTree = "<group>"; };
 		821BC4C71DB8D5B200172ED0 /* IGTestStoryboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGTestStoryboardViewController.h; sourceTree = "<group>"; };
@@ -694,6 +722,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7A92EA9423A8A42000E5A13D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A92EAA523A8A50100E5A13D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		885FE1D01DC51A0D009CE2B4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -755,6 +797,7 @@
 			children = (
 				7A02D0252361522600B49FAE /* IGListDiffKit */,
 				7A02CEC6236150C400B49FAE /* IGListKit */,
+				7A92EA9823A8A42000E5A13D /* IGListSwiftKit */,
 				7A02D0AC236153CE00B49FAE /* Info.plist */,
 			);
 			path = Source;
@@ -852,6 +895,8 @@
 				7A02CF722361513400B49FAE /* IGListAdapterProxy.m */,
 				7A02CF7E2361513500B49FAE /* IGListAdapterUpdater+DebugDescription.h */,
 				7A02CF732361513400B49FAE /* IGListAdapterUpdater+DebugDescription.m */,
+				7AD6864A23A89E7F009000DE /* IGListAdapterUpdaterHelpers.h */,
+				7AD6864923A89E7F009000DE /* IGListAdapterUpdaterHelpers.m */,
 				7A02CF702361513400B49FAE /* IGListAdapterUpdaterInternal.h */,
 				7A02CF812361513500B49FAE /* IGListArrayUtilsInternal.h */,
 				7A02CF8C2361513500B49FAE /* IGListBatchUpdateData+DebugDescription.h */,
@@ -928,6 +973,15 @@
 				7A02D04D2361529E00B49FAE /* IGListMoveIndexPathInternal.h */,
 			);
 			path = Internal;
+			sourceTree = "<group>";
+		};
+		7A92EA9823A8A42000E5A13D /* IGListSwiftKit */ = {
+			isa = PBXGroup;
+			children = (
+				7A92EA9923A8A42000E5A13D /* IGListSwiftKit.h */,
+				7A92EA9F23A8A43D00E5A13D /* IGListCollectionContext+Refinements.swift */,
+			);
+			path = IGListSwiftKit;
 			sourceTree = "<group>";
 		};
 		88144EF01D870EDC007C7F66 /* Objects */ = {
@@ -1037,6 +1091,8 @@
 				7A02D01D2361520200B49FAE /* IGListDiffKit.framework */,
 				7A02D02B2361525800B49FAE /* IGListDiffKit.framework */,
 				7A02D0382361526600B49FAE /* IGListDiffKit.framework */,
+				7A92EA9723A8A42000E5A13D /* IGListSwiftKit.framework */,
+				7A92EAA823A8A50100E5A13D /* IGListSwiftKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1155,6 +1211,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7A92EA9223A8A42000E5A13D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A92EA9B23A8A42000E5A13D /* IGListSwiftKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A92EAA323A8A50100E5A13D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A92EAB023A8A50C00E5A13D /* IGListSwiftKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		885FE1D11DC51A0D009CE2B4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1191,6 +1263,7 @@
 				7A02CF462361511100B49FAE /* IGListAdapterPerformanceDelegate.h in Headers */,
 				7A02CF0A2361511100B49FAE /* IGListBindingSectionControllerDataSource.h in Headers */,
 				7A02D0122361513600B49FAE /* UICollectionView+DebugDescription.h in Headers */,
+				7A92EAB423A8A5FA00E5A13D /* IGListAdapterUpdaterHelpers.h in Headers */,
 				7A02CF0D2361511100B49FAE /* IGListCollectionContext.h in Headers */,
 				7A02CF372361511100B49FAE /* IGListAdapterDataSource.h in Headers */,
 				7A02CFC12361513600B49FAE /* IGListAdapter+UICollectionView.h in Headers */,
@@ -1252,6 +1325,7 @@
 				7A02CFC92361513600B49FAE /* UICollectionView+IGListBatchUpdateData.h in Headers */,
 				7A02CEF12361511100B49FAE /* IGListScrollDelegate.h in Headers */,
 				7A02CFF62361513600B49FAE /* IGListSectionMap+DebugDescription.h in Headers */,
+				7AD6864C23A89E7F009000DE /* IGListAdapterUpdaterHelpers.h in Headers */,
 				7A02CF002361511100B49FAE /* IGListCollectionView.h in Headers */,
 				7A02CF152361511100B49FAE /* IGListCollectionViewLayout.h in Headers */,
 				7A02CF1B2361511100B49FAE /* IGListSectionController.h in Headers */,
@@ -1338,6 +1412,44 @@
 			name = "IGListDiffKit-macOS";
 			productName = "IGListDiffKit-macOS";
 			productReference = 7A02D0382361526600B49FAE /* IGListDiffKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7A92EA9623A8A42000E5A13D /* IGListSwiftKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A92EA9C23A8A42000E5A13D /* Build configuration list for PBXNativeTarget "IGListSwiftKit" */;
+			buildPhases = (
+				7A92EA9223A8A42000E5A13D /* Headers */,
+				7A92EA9323A8A42000E5A13D /* Sources */,
+				7A92EA9423A8A42000E5A13D /* Frameworks */,
+				7A92EA9523A8A42000E5A13D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A92EAA223A8A4E700E5A13D /* PBXTargetDependency */,
+			);
+			name = IGListSwiftKit;
+			productName = IGListSwiftKit;
+			productReference = 7A92EA9723A8A42000E5A13D /* IGListSwiftKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7A92EAA723A8A50100E5A13D /* IGListSwiftKit-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A92EAAD23A8A50100E5A13D /* Build configuration list for PBXNativeTarget "IGListSwiftKit-tvOS" */;
+			buildPhases = (
+				7A92EAA323A8A50100E5A13D /* Headers */,
+				7A92EAA423A8A50100E5A13D /* Sources */,
+				7A92EAA523A8A50100E5A13D /* Frameworks */,
+				7A92EAA623A8A50100E5A13D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A92EAB323A8A53F00E5A13D /* PBXTargetDependency */,
+			);
+			name = "IGListSwiftKit-tvOS";
+			productName = "IGListSwiftKit-tvOS";
+			productReference = 7A92EAA823A8A50100E5A13D /* IGListSwiftKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		885FE1D31DC51A0D009CE2B4 /* IGListKit-tvOS */ = {
@@ -1459,6 +1571,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = IG;
+				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Instagram;
 				TargetAttributes = {
@@ -1473,6 +1586,15 @@
 					7A02D0372361526600B49FAE = {
 						CreatedOnToolsVersion = 11.1;
 						ProvisioningStyle = Manual;
+					};
+					7A92EA9623A8A42000E5A13D = {
+						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
+						ProvisioningStyle = Automatic;
+					};
+					7A92EAA723A8A50100E5A13D = {
+						CreatedOnToolsVersion = 11.2.1;
+						ProvisioningStyle = Automatic;
 					};
 					885FE1D31DC51A0D009CE2B4 = {
 						CreatedOnToolsVersion = 8.1;
@@ -1490,7 +1612,7 @@
 					};
 					887D0B3E1D870D7F009E01F7 = {
 						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1120;
 						ProvisioningStyle = Manual;
 					};
 					88DF897B1E010E6A00B1B9B4 = {
@@ -1526,11 +1648,27 @@
 				7A02D01C2361520200B49FAE /* IGListDiffKit */,
 				7A02D02A2361525800B49FAE /* IGListDiffKit-tvOS */,
 				7A02D0372361526600B49FAE /* IGListDiffKit-macOS */,
+				7A92EA9623A8A42000E5A13D /* IGListSwiftKit */,
+				7A92EAA723A8A50100E5A13D /* IGListSwiftKit-tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7A92EA9523A8A42000E5A13D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A92EAA623A8A50100E5A13D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		885FE1DA1DC51A0D009CE2B4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1681,6 +1819,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7A92EA9323A8A42000E5A13D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A92EAA023A8A43D00E5A13D /* IGListCollectionContext+Refinements.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A92EAA423A8A50100E5A13D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A92EAB123A8A50C00E5A13D /* IGListCollectionContext+Refinements.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		885FE1CF1DC51A0D009CE2B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1710,6 +1864,7 @@
 				7A02D0062361513600B49FAE /* IGListDebuggingUtilities.m in Sources */,
 				7A02CF522361511100B49FAE /* IGListAdapter.m in Sources */,
 				7A02CF942361513600B49FAE /* IGListAdapter+DebugDescription.m in Sources */,
+				7A92EAB523A8A5FF00E5A13D /* IGListAdapterUpdaterHelpers.m in Sources */,
 				7A02CFD92361513600B49FAE /* IGListBatchUpdateData+DebugDescription.m in Sources */,
 				7A02CFAF2361513600B49FAE /* UICollectionViewLayout+InteractiveReordering.m in Sources */,
 			);
@@ -1809,6 +1964,7 @@
 				7A02D0052361513600B49FAE /* IGListDebuggingUtilities.m in Sources */,
 				7A02CF512361511100B49FAE /* IGListAdapter.m in Sources */,
 				7A02CF932361513600B49FAE /* IGListAdapter+DebugDescription.m in Sources */,
+				7AD6864B23A89E7F009000DE /* IGListAdapterUpdaterHelpers.m in Sources */,
 				7A02CFD82361513600B49FAE /* IGListBatchUpdateData+DebugDescription.m in Sources */,
 				7A02CFAE2361513600B49FAE /* UICollectionViewLayout+InteractiveReordering.m in Sources */,
 			);
@@ -1919,6 +2075,16 @@
 			target = 7A02D0372361526600B49FAE /* IGListDiffKit-macOS */;
 			targetProxy = 7A02D0BE23615B9000B49FAE /* PBXContainerItemProxy */;
 		};
+		7A92EAA223A8A4E700E5A13D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 887D0B351D870D7E009E01F7 /* IGListKit */;
+			targetProxy = 7A92EAA123A8A4E700E5A13D /* PBXContainerItemProxy */;
+		};
+		7A92EAB323A8A53F00E5A13D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 885FE1D31DC51A0D009CE2B4 /* IGListKit-tvOS */;
+			targetProxy = 7A92EAB223A8A53F00E5A13D /* PBXContainerItemProxy */;
+		};
 		885FE1DF1DC51A0D009CE2B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 885FE1D31DC51A0D009CE2B4 /* IGListKit-tvOS */;
@@ -1940,6 +2106,7 @@
 		7A02D0232361520200B49FAE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1967,6 +2134,7 @@
 		7A02D0242361520200B49FAE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1993,6 +2161,7 @@
 		7A02D0312361525800B49FAE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -2022,6 +2191,7 @@
 		7A02D0322361525800B49FAE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -2050,6 +2220,7 @@
 		7A02D03E2361526600B49FAE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -2079,6 +2250,7 @@
 		7A02D03F2361526600B49FAE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -2101,6 +2273,120 @@
 				PRODUCT_NAME = IGListDiffKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		7A92EA9D23A8A42000E5A13D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.instagram.IGListSwiftKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7A92EA9E23A8A42000E5A13D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.instagram.IGListSwiftKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7A92EAAE23A8A50100E5A13D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.instagram.IGListSwiftKit-tvOS";
+				PRODUCT_NAME = IGListSwiftKit;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 13.2;
+			};
+			name = Debug;
+		};
+		7A92EAAF23A8A50100E5A13D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.instagram.IGListSwiftKit-tvOS";
+				PRODUCT_NAME = IGListSwiftKit;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 13.2;
 			};
 			name = Release;
 		};
@@ -2175,7 +2461,7 @@
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Tests/IGListKitTests-Bridging-Header.h";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Debug;
@@ -2197,7 +2483,7 @@
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Tests/IGListKitTests-Bridging-Header.h";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
@@ -2398,7 +2684,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSiON = 5.0;
 			};
 			name = Debug;
 		};
@@ -2474,7 +2760,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSiON = 5.0;
 			};
 			name = Release;
 		};
@@ -2496,7 +2782,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Tests/IGListKitTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -2517,7 +2803,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tests/IGListKitTests-Bridging-Header.h";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -2539,7 +2825,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -2561,7 +2847,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -2638,7 +2924,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSiON = 5.0;
 			};
 			name = Debug;
 		};
@@ -2714,7 +3000,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSiON = 5.0;
 			};
 			name = Release;
 		};
@@ -2744,6 +3030,24 @@
 			buildConfigurations = (
 				7A02D03E2361526600B49FAE /* Debug */,
 				7A02D03F2361526600B49FAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A92EA9C23A8A42000E5A13D /* Build configuration list for PBXNativeTarget "IGListSwiftKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A92EA9D23A8A42000E5A13D /* Debug */,
+				7A92EA9E23A8A42000E5A13D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A92EAAD23A8A50100E5A13D /* Build configuration list for PBXNativeTarget "IGListSwiftKit-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A92EAAE23A8A50100E5A13D /* Debug */,
+				7A92EAAF23A8A50100E5A13D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
