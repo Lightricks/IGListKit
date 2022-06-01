@@ -312,14 +312,14 @@
 		7A02D0AA2361530800B49FAE /* IGListDiffKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A02D02B2361525800B49FAE /* IGListDiffKit.framework */; };
 		7A02D0AB2361530E00B49FAE /* IGListDiffKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A02D01D2361520200B49FAE /* IGListDiffKit.framework */; };
 		7A02D0C023615CE500B49FAE /* IGListKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A02CED72361511000B49FAE /* IGListKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7A92EAB423A8A5FA00E5A13D /* IGListAdapterUpdaterHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD6864A23A89E7F009000DE /* IGListAdapterUpdaterHelpers.h */; };
-		7AD6864C23A89E7F009000DE /* IGListAdapterUpdaterHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD6864A23A89E7F009000DE /* IGListAdapterUpdaterHelpers.h */; };
-		7A92EAB523A8A5FF00E5A13D /* IGListAdapterUpdaterHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6864923A89E7F009000DE /* IGListAdapterUpdaterHelpers.m */; };
 		7A92EA9B23A8A42000E5A13D /* IGListSwiftKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A92EA9923A8A42000E5A13D /* IGListSwiftKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A92EAA023A8A43D00E5A13D /* IGListCollectionContext+Refinements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A92EA9F23A8A43D00E5A13D /* IGListCollectionContext+Refinements.swift */; };
 		7A92EAB023A8A50C00E5A13D /* IGListSwiftKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A92EA9923A8A42000E5A13D /* IGListSwiftKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A92EAB123A8A50C00E5A13D /* IGListCollectionContext+Refinements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A92EA9F23A8A43D00E5A13D /* IGListCollectionContext+Refinements.swift */; };
+		7A92EAB423A8A5FA00E5A13D /* IGListAdapterUpdaterHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD6864A23A89E7F009000DE /* IGListAdapterUpdaterHelpers.h */; };
+		7A92EAB523A8A5FF00E5A13D /* IGListAdapterUpdaterHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6864923A89E7F009000DE /* IGListAdapterUpdaterHelpers.m */; };
 		7AD6864B23A89E7F009000DE /* IGListAdapterUpdaterHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6864923A89E7F009000DE /* IGListAdapterUpdaterHelpers.m */; };
+		7AD6864C23A89E7F009000DE /* IGListAdapterUpdaterHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD6864A23A89E7F009000DE /* IGListAdapterUpdaterHelpers.h */; };
 		821BC4C01DB8C9D500172ED0 /* IGListSingleStoryboardItemControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 821BC4BE1DB8C95300172ED0 /* IGListSingleStoryboardItemControllerTests.m */; };
 		821BC4C41DB8CEF800172ED0 /* IGTestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821BC4C21DB8CAE900172ED0 /* IGTestStoryboard.storyboard */; };
 		821BC4CB1DB8D60100172ED0 /* IGTestStoryboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 821BC4C81DB8D5B200172ED0 /* IGTestStoryboardViewController.m */; };
@@ -1572,7 +1572,7 @@
 			attributes = {
 				CLASSPREFIX = IG;
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 9999;
 				ORGANIZATIONNAME = Instagram;
 				TargetAttributes = {
 					7A02D01C2361520200B49FAE = {
@@ -2513,6 +2513,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -2577,6 +2578,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
