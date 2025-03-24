@@ -10,7 +10,7 @@
 #import <IGListDiffKit/IGListExperiments.h>
 #import <IGListDiffKit/IGListMacros.h>
 
-#import "IGListCollectionViewLayoutCompatible.h"
+#import <IGListKit/IGListCollectionViewLayoutCompatible.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
